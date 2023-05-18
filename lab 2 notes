@@ -1,0 +1,37 @@
+/**  Note: 23/2/6 Pepper
+ * split_cmd(char *){ return COMMAND *}
+ * create a space buffer for storing the input
+ * encapsulate COMMAND：*name **argv
+ * read input command，allocate space，copy command
+ * allocate space for the first array
+ * for {allocate space for the second array; copy each argv[i]}
+ * cmd->argv[i] = NULL;
+ * free all allocated space
+ * 
+ */
+
+/** 23/2/12 Note Pepper
+ * built-in command: cd
+ * when the user issues a command, the shell should first check if it is a built-in command
+ * create a cd_cmd function
+ * when cmd->name = cd, invoke cd_cmd(params)
+ * start from the second param
+ * get a copy
+ * in a while loop, count the params
+ * if count == 0 or count >= 2: error
+ * else chdir(change_to_copy)
+ * return NULL(means the prompt refreshes a new line)
+ */
+
+/** 23/2/11 Pepper note
+ * Output redirection is achieved by > or >> followed by a filename. 
+ * For example: [nyush lab2]$ ls -l > output.txt
+ * [nyush lab2]$ ls -l >> output.txt
+ * 
+ * solution：when spliting, identify < or <<, store the input finename,
+ * indentify > or >>, store the output filename
+ * continue to collect remaining parameters
+ * so cmd has to add two attributes: output_file_desc input_file_desc
+ * 
+ * 
+ */
